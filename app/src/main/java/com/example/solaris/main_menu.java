@@ -63,17 +63,6 @@ public class main_menu extends AppCompatActivity {
             }
         });
     }
-    public void populer(View v)
-    {
-        Intent pop = new Intent(main_menu.this , populer.class);
-        startActivity(pop);
-    }
-
-    public void jalan(View v)
-    {
-        Intent go = new Intent(main_menu.this , Jalan.class);
-        startActivity(go);
-    }
 
     public void settingan()
     {
@@ -86,6 +75,12 @@ public class main_menu extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    public void profil(View v)
+    {
+        Intent prof = new Intent(main_menu.this , Profile_pengguna.class);
+        startActivity(prof);
     }
 
     public void akun(){
@@ -130,7 +125,7 @@ public class main_menu extends AppCompatActivity {
                     ArticleList articleList=di.getValue(ArticleList.class);
                     articleLists.add(articleList);
                 }
-                ArticleAdapter adapter=new ArticleAdapter(articleLists,getApplicationContext());
+                ArticleAdapter adapter=new ArticleAdapter(articleLists, main_menu.this);
                 rv.setAdapter(adapter);
             }
 
@@ -139,13 +134,6 @@ public class main_menu extends AppCompatActivity {
 
             }
         });
-    }
-
-    //harusnya buat klik kartu
-
-    public void kartu_klik(View v) {
-        Intent intent = new Intent(main_menu.this, Detail_lokasi.class);
-        startActivity(intent);
     }
 
 }

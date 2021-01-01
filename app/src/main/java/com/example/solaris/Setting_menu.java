@@ -3,10 +3,13 @@ package com.example.solaris;
 import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -32,7 +35,7 @@ public class Setting_menu extends Activity {
         kontak_orang = (Switch) findViewById(R.id.buku_kontak);
 
         //slide
-        //BLUETOOTH (blom bisa)
+        //BLUETOOTH (udah bisa)
         blutut.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -77,7 +80,7 @@ public class Setting_menu extends Activity {
 
         });
 
-        //WIFI
+      //WIFI (belom dicoba)
         wipi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -94,9 +97,15 @@ public class Setting_menu extends Activity {
             }
 
             private void buka_wifi(){
-                Intent wifiIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                wifiIntent.setType("wifi/*");
-                startActivityForResult(wifiIntent, REQUESTCODE);
+                WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+                if (wifiManager == null) {
+                    Toast.makeText(getApplicationContext(), "Android Tidak Support Fitur Ini", Toast.LENGTH_LONG).show();
+                } else if (wifiManager.isWifiEnabled()){
+                    wifiManager.setWifiEnabled(true);
+                } else {
+                    wifiManager.setWifiEnabled(false);
+                }
+
             }
 
             private void CheckPermission(){
@@ -113,14 +122,31 @@ public class Setting_menu extends Activity {
             }
         });
 
-        //GPS
+        //GPS (belom dicoba)
         gipis.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-
+                    CheckPermission();
                 } else {
+                    buka_gps();
+                }
+            }
 
+            private void buka_gps(){
+                Intent intent1 = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent1);
+            }
+
+            private void CheckPermission(){
+                if (ContextCompat.checkSelfPermission(Setting_menu.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(Setting_menu.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                        Toast.makeText(Setting_menu.this, "Please Accept for Required Permission", Toast.LENGTH_SHORT).show();
+                    } else {
+                        ActivityCompat.requestPermissions(Setting_menu.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, PreqCode);
+                    }
+                }else {
+                    buka_gps();
                 }
             }
         });

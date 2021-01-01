@@ -3,14 +3,16 @@ package com.example.solaris;
 public class ArticleList {
     public String articleName;
     public String imageUrl;
+    public String description;
 
     public ArticleList(){
 
     }
 
-    public ArticleList(String articleName, String imageUrl) {
+    public ArticleList(String articleName, String imageUrl, String description) {
         this.articleName = articleName;
         this.imageUrl = imageUrl;
+        this.description = description;
     }
 
     public String getArticleName() {
@@ -28,4 +30,8 @@ public class ArticleList {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public String getDescription(){return description;}
+
+    public void setDescription(String description){this.description = description;}
 }

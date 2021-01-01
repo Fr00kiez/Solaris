@@ -18,26 +18,18 @@
         android:layout_gravity="center">
 
         <ImageView
-            android:id="@+id/pop"
-            android:layout_width="127dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:onClick="populer"
-            android:src="@drawable/pop" />
-
-        <ImageView
             android:id="@+id/near"
-            android:layout_width="127dp"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
+            android:layout_width="86dp"
+            android:layout_height="69dp"
+            android:layout_gravity="right"
             android:src="@drawable/near" />
 
         <ImageView
-            android:id="@+id/go1"
-            android:layout_width="127dp"
-            android:layout_height="85dp"
+            android:id="@+id/prof"
+            android:layout_width="86dp"
+            android:layout_height="69dp"
             android:layout_gravity="left"
-            android:onClick="jalan"
+            android:onClick="profil"
             android:src="@drawable/go" />
 
     </LinearLayout>
@@ -45,7 +37,7 @@
             <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/resikel"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
