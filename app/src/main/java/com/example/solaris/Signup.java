@@ -88,7 +88,6 @@ public class Signup extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
                             // send verification link
 
                             FirebaseUser fuser = fAuth.getCurrentUser();
@@ -106,7 +105,7 @@ public class Signup extends AppCompatActivity {
 
                             Toast.makeText(Signup.this, "User Created.", Toast.LENGTH_SHORT).show();
                             userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            DocumentReference documentReference = fStore.collection("Users").document(userID);
 
                             Map<String, String> user = new HashMap<>();
                             user.put("fName", username);

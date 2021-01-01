@@ -13,17 +13,17 @@
 
     <Switch
         android:id="@+id/blue"
-        android:layout_width="375dp"
+        android:layout_width="294dp"
         android:layout_height="56dp"
+        android:layout_gravity="center"
         android:checked="false"
         android:text="Bluetooth"
         android:textOff="Bluetooth dimatikan"
-        android:textOn="Bluetooth dinyalakan"
-        android:layout_gravity="center"/>
+        android:textOn="Bluetooth dinyalakan" />
 
     <Switch
         android:id="@+id/waifi"
-        android:layout_width="375dp"
+        android:layout_width="294dp"
         android:layout_height="56dp"
         android:text="WiFi"
         android:checked="false"
@@ -33,7 +33,7 @@
 
     <Switch
         android:id="@+id/jipies"
-        android:layout_width="375dp"
+        android:layout_width="294dp"
         android:layout_height="56dp"
         android:text="GPS"
         android:checked="false"
@@ -43,7 +43,7 @@
 
     <Switch
         android:id="@+id/kamemera"
-        android:layout_width="375dp"
+        android:layout_width="294dp"
         android:layout_height="56dp"
         android:text="Kamera"
         android:checked="false"
@@ -53,7 +53,7 @@
 
     <Switch
         android:id="@+id/buku_kontak"
-        android:layout_width="375dp"
+        android:layout_width="294dp"
         android:layout_height="56dp"
         android:text="Kontak"
         android:checked="false"
