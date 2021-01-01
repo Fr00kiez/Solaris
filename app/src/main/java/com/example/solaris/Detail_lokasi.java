@@ -16,7 +16,7 @@ public class Detail_lokasi extends AppCompatActivity {
     private void initializeWidgets(){
         nameDetailTextView= findViewById(R.id.nameDetailTextView);
         descriptionDetailTextView= findViewById(R.id.descriptionDetailTextView);
-        teacherDetailImageView=findViewById(R.id.teacherDetailImageView);
+        teacherDetailImageView=findViewById(R.id.articleimg2);
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,8 @@ import java.util.List;
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
     List<ArticleList>articleLists;
     Context ct;
+    private AdapterView.OnItemClickListener mListener;
+
 
     public ArticleAdapter(List<ArticleList> articleLists, Context ct) {
         this.articleLists = articleLists;
@@ -35,6 +38,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         ArticleList articleList=articleLists.get(position);
         Glide.with(ct)
                 .load(articleList.getImageUrl())
+                .placeholder(R.drawable.default_img)
+                .centerCrop()
                 .into(holder.articleimg);
 
         holder.articlename.setText(articleList.getArticleName());
@@ -46,7 +51,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         return articleLists.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView articleimg;
         TextView articlename;
         public ViewHolder(@NonNull View itemView) {

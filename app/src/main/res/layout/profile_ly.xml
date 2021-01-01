@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2">
+    android:background="@drawable/bg2"
+    tools:context=".Profile_pengguna">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -14,25 +15,97 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="187dp"
-        android:layout_height="193dp"
-        tools:srcCompat="@tools:sample/avatars"
-        android:layout_margin="40dp"
-        android:padding="1dp"
-        android:layout_gravity="center"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="154dp"
+        android:layout_height="154dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="80dp"
+        app:cardElevation="0dp">
 
-    <TextView
-        android:id="@+id/nama_pengguna"
-        android:layout_width="176dp"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="187dp"
+            android:layout_height="187dp"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:padding="1dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@drawable/default_img" />
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+        android:layout_width="288dp"
+        android:layout_height="88dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <Button
+            android:id="@+id/upload_pp"
+            android:layout_width="69dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/Orange"
+            android:drawableTop="@android:drawable/ic_menu_camera" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Nama Kamu"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
+        app:cardBackgroundColor="@color/Orange">
+
+        <TextView
+            android:id="@+id/nama_pengguna"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:drawableLeft="@android:drawable/ic_menu_info_details"
+            android:gravity="center"
+            android:text="Nama Kamu"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="388dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@color/Orange">
+
+        <TextView
+            android:id="@+id/email_pengguna"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:drawableLeft="@android:drawable/ic_dialog_email"
+            android:gravity="center"
+            android:text="Email kamu"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="304dp"
+        android:layout_height="116dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/keluar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/Orange"
+            android:text="Keluar"
+            android:textColor="#ffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
 
 
 </LinearLayout>

@@ -88,6 +88,12 @@ public class main_menu extends AppCompatActivity {
         return true;
     }
 
+    public void akun(){
+        Intent akun = new Intent(main_menu.this, Profile_pengguna.class);
+        startActivity(akun);
+    }
+
+    //INI PILIHAN ATAS
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Context context = getApplicationContext();
@@ -98,7 +104,7 @@ public class main_menu extends AppCompatActivity {
                 settingan();
                 return true;
             case R.id.action_profile:
-                Toast.makeText(context, "chonky", duration).show();
+                akun();
                 return true;
             case R.id.action_logout:
                 logout();
@@ -133,6 +139,13 @@ public class main_menu extends AppCompatActivity {
 
             }
         });
+    }
+
+    //harusnya buat klik kartu
+
+    public void kartu_klik(View v) {
+        Intent intent = new Intent(main_menu.this, Detail_lokasi.class);
+        startActivity(intent);
     }
 
 }
