@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,11 +18,13 @@ public class Detail_lokasi extends AppCompatActivity {
     ImageView gambar_lokasi;
     CheckBox solo_adven, grupPrifat, grupPublik;
     Button pesan_paket;
+    RatingBar ratingBar;
 
     private void initializeWidgets(){
         detailNama= findViewById(R.id.detailNama);
         deskripsi_tempat= findViewById(R.id.deskripsi);
         gambar_lokasi=findViewById(R.id.articleimg2);
+        ratingBar=findViewById(R.id.ratingBar);
     }
 
     @Override
@@ -32,9 +35,11 @@ public class Detail_lokasi extends AppCompatActivity {
         grupPrifat=(CheckBox) findViewById(R.id.grupPrifat);
         grupPublik=(CheckBox) findViewById(R.id.grupPublik);
         pesan_paket=(Button) findViewById(R.id.pesan_paket);
+        //set star number
+        ratingBar.setNumStars(5);
 
         initializeWidgets();
-
+        //BUAT NGAMBIL GAMBAR DARI FIREBASE
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
             detailNama.setText(""+bundle.getString("articleName"));
@@ -49,6 +54,7 @@ public class Detail_lokasi extends AppCompatActivity {
 
     }
 
+    //PILIHAN CHECKBOX
     public void onClick(View view){
         if(solo_adven.isChecked()==true && grupPrifat.isChecked()==true && grupPublik.isChecked()==true){
             Toast.makeText(Detail_lokasi.this, "Pilih Satu Paket Saja", Toast.LENGTH_SHORT).show();
@@ -63,7 +69,9 @@ public class Detail_lokasi extends AppCompatActivity {
         } else if(grupPublik.isChecked()==true){
             Toast.makeText(Detail_lokasi.this, "Kamu Berhasil Memesan Paket Grup Publik", Toast.LENGTH_LONG).show();
         }else if(grupPrifat.isChecked()==true){
-            Toast.makeText(Detail_lokasi.this, "Kamu Berhasil Memesan Paket Grub Privat", Toast.LENGTH_LONG).show();
+            Toast.makeText(Detail_lokasi.this, "Kamu Berhasil Memesan Paket Grup Privat", Toast.LENGTH_LONG).show();
         }
     }
+
+
 }
