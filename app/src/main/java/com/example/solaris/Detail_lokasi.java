@@ -35,8 +35,6 @@ public class Detail_lokasi extends AppCompatActivity {
         grupPrifat=(CheckBox) findViewById(R.id.grupPrifat);
         grupPublik=(CheckBox) findViewById(R.id.grupPublik);
         pesan_paket=(Button) findViewById(R.id.pesan_paket);
-        //set star number
-        ratingBar.setNumStars(5);
 
         initializeWidgets();
         //BUAT NGAMBIL GAMBAR DARI FIREBASE
